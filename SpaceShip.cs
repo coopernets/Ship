@@ -95,7 +95,7 @@ namespace SHIP
                 Console.WriteLine("How much fuel do you want to use?");
                 fuelUsedinBurn = int.Parse(Console.ReadLine());
                 thrust = fuelUsedinBurn * 2000;
-                accelaration = accelaration + (thrust / currentWeight) + gravity;
+                accelaration = (thrust / currentWeight) + gravity;
                 currentFuel = currentFuel - fuelUsedinBurn;
             }
             else
@@ -107,7 +107,7 @@ namespace SHIP
         public void ApplyGravity()
         {
             currentWeight = shipWeight + currentFuel;
-            accelaration = accelaration + gravity;
+            accelaration = gravity;
         }
         public void CheckAltitude()
         {
@@ -117,9 +117,9 @@ namespace SHIP
         }
         public void movement()
         {
-            Start:
-            
-            if(input!=null)
+        Start:
+
+            if (input != null)
             {
                 int caseSwitch = int.Parse(input);
                 switch (caseSwitch)
@@ -128,12 +128,12 @@ namespace SHIP
                         Thrust();
                         Console.WriteLine("Thrust Applied");
                         CheckAltitude();
-                                             
+
                         break;
                     case 2:
                         ApplyGravity();
                         Console.WriteLine("Waiting");
-                        CheckAltitude();                         
+                        CheckAltitude();
                         break;
                     default:
                         Console.WriteLine("Bad Input... Gravity Applied only!");
@@ -145,7 +145,7 @@ namespace SHIP
                 Console.WriteLine("No Input Detected");
                 goto Start;
             }
-           
+
         }
     }
 }

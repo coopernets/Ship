@@ -29,11 +29,11 @@ namespace SHIP
                 else
                 {
                     ship.movement();
-             
+
                 }
-                
+
             }
-           
+
         }
     }
 }
